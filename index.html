@@ -28,11 +28,7 @@
     // processSingleLearner({ name: "Elisabeth", lovesJS: 1 }) // should return { name: "Elisabeth", lovesJS: true }
     // processSingleLearner({ name: "Pete", age: 23, lovesJS: 0 }) // should return { name: "Pete", age: 23, lovesJS: false }
     const processSingleLearner = (learner) => {
-      if (learner.lovesJS === 0) {
-        learner.lovesJS = false;
-      } else if (learner.lovesJS === 1) {
-        learner.lovesJS = true;
-      }
+      learner.lovesJS = !!learner.lovesJS; // !! operator is converting the value of learner.loveJS to a boolean.
       return learner;
     }
 
@@ -49,14 +45,11 @@
     // 🧠 Solve this challenge using a for/in loop or a for loop.
     const processLearnersLoop = (arr) => {
       for (let i in arr) {
-        if (arr[i].lovesJS === 1) {
-          arr[i].lovesJS = true;
-        } else if (arr[i].lovesJS === 0) {
-          arr[i].lovesJS = false;
-        }
+        arr[i].lovesJS = !!arr[i].lovesJS;
       }
       return arr;
     }
+
 
     // 👉 CHALLENGE 3
     // 🧠 The function processLearnerForEach takes an array of learner objects as its argument, and returns it after some modifications.
@@ -64,8 +57,9 @@
     // ❗ Notes:
     // 🧠 Solve this challenge using the forEach method of the learners array.
     // 🧠 Use arrow functions whenever possible.
-    const processLearnerForEach = () => {
-
+    const processLearnerForEach = (arr) => {
+      arr.forEach(learner => learner.lovesJS = !!learner.lovesJS);
+      return arr;
     }
 
     // 👉 CHALLENGE 4
