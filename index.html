@@ -47,8 +47,15 @@
     // ❗ Notes:
     // 🧠 There are many approaches to this problem: using a loop, using forEach, using map...
     // 🧠 Solve this challenge using a for/in loop or a for loop.
-    const processLearnersLoop = () => {
-
+    const processLearnersLoop = (arr) => {
+      for (let i in arr) {
+        if (arr[i].lovesJS === 1) {
+          arr[i].lovesJS = true;
+        } else if (arr[i].lovesJS === 0) {
+          arr[i].lovesJS = false;
+        }
+      }
+      return arr;
     }
 
     // 👉 CHALLENGE 3
