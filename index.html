@@ -68,8 +68,9 @@
     // ❗ Notes:
     // 🧠 Solve this challenge using the map method of the learners array.
     // 🧠 Use arrow functions.
-    const processLearnerMap = () => {
-
+    const processLearnerMap = (arr) => {
+      arr.map(learner => learner.lovesJS = !!learner.lovesJS);
+      return arr;
     }
 
     // 👉 CHALLENGE 5
@@ -80,8 +81,16 @@
     // ❗ Notes:
     // 🧠 Solve this challenge using the forEach method of the learners array.
     // 🧠 You will need to declare a result array into which you push learners from inside your forEach loop.
-    const getJavaScriptLoversForEach = () => {
-
+    const getJavaScriptLoversForEach = (arr) => {
+      let result = [];
+      arr.forEach(learner => {
+        if (learner.lovesJS === true || learner.lovesJS === 1) result.push(learner);
+      })
+      if (result.length > 0) {
+        return result;
+      } else {
+        return "no JS lovers here!";
+      }
     }
 
     // 👉 CHALLENGE 6
@@ -89,8 +98,12 @@
     // 🧠 It should work exactly the same as the getJavaScriptLoversForEach function above.
     // ❗ Notes:
     // 🧠 Solve this challenge using the filter method of the learners array.
-    const getJavaScriptLoversFilter = () => {
-
+    const getJavaScriptLoversFilter = (arr) => {
+      let result = [];
+      arr.filter(learner => {
+        if (learner.lovesJS === true || learner.lovesJS === 1) result.push(learner);
+      })
+      return result.length > 0 ? result : "no JS lovers here!";
     }
 
     // 👉 CHALLENGE 7
@@ -105,8 +118,17 @@
     // ❗ Notes:
     // 🧠 This could be solved by using filter to make an array of odd integers, and then using forEach to add them up.
     // 🧠 Or you could opt for solving everything with a single forEach which is the recommended approach (saves a loop).
-    const sumOddInts = () => {
+    const sumOddInts = (arr) => {
+      let count = 0;
+      const oddArr = [];
 
+      arr.forEach(num => {
+        if (num % 2 === 1) {
+          count += num;
+          oddArr.push(num);
+        }
+      })
+      return [count, oddArr];
     }
 
     // 👉 CHALLENGE 8
